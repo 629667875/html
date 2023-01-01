@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>初恋云网络-Q绑信息在线查询</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/layer.js"></script>
+<link rel="stylesheet" href="/css/layer.css" id="layuicss-layer">
+<link rel="shortcut icon" href="//q1.qlogo.cn/g?b=qq&nk=1013138336&s=640" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0b524276172ae8f6e212cac33590a734";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<body style="background-image: url(https://api.ixiaowai.cn/api/api.php);opacity:0.8">
+<div class="container">
+<div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 center-block" style="float: none;">
+<br>
+<div class="panel panel-primary">
+<div class="panel-heading" style="background: linear-gradient(to right,#b221ff,#14b7ff,#8ae68a);">
+<h3 class="panel-title">Q绑在线查询</h3>
+</div>
+<div class="panel-body" style="text-align: center;">
+<div class="list-group">
+<div class="list-group-item list-group-item-warning" style="font-weight: bold;">
+<span>输入Q号查询密保</span>
+</div>
+<div class="list-group-item list-group-item-info" style="font-weight: bold;">
+<input class="form-control" id="input" placeholder="请输入QQ">
+</div>
+			<marquee scrollamount="5" direction="left" align="Middle" style="font-weight: bold;line-height: 18px;font-size: 15px;color: #8968CD;">意识清晰得让人感到痛苦  端坐的道行  明白的虚空 天空渐渐冻结  繁星降临的海市蜃楼  引诱我步入深深的地方  沉没之船也在我的臂弯中  再一次浮了上来  沉没的街道也在我的臂弯中   那天被丢弃的历史  忘不掉这一切虚假的幻象  若此刻停止了呼吸  出现了海市蜃楼  不变的结局便是   我再也不会回到那片海滩之地</marquee>
+<div class="list-group-item">
+<a onclick="qbang('cha')" class="btn btn-block btn-primary" style="background: linear-gradient(to right,#b221ff,#14b7ff);">查找</a>
+<a class="btn btn-block btn-primary" style="background: linear-gradient(to right,#F20714,#F20714);" href="/yd">社交媒体业务</a>
+<a class="btn btn-block btn-primary" style="background: linear-gradient(to right,#5A5A5A,#5A5A5A);" href="/hz">社交媒体账号</a>
+<a class="btn btn-block btn-primary" style="background: linear-gradient(to right,#48C9B0,#28B463);" href="http://tool.6z6.xyz/census">社工裤查询</a>
+</div>
+<div class="list-group-item list-group-item-warning" style="font-weight: bold;display: none;" id="jiexi_data">
+<div class="input-group">
+<span class="input-group-addon ">密保手机号</span>
+<input type="text" class="form-control" placeholder id="mobile" readonly>
+</div>
+<div class="input-group">
+<span class="input-group-addon">号码归属地</span>
+<input type="text" class="form-control" placeholder id="mobileduqu" readonly>
+</div>
+<div class="input-group">
+<span class="input-group-addon">LOL信息</span>
+<input type="text" class="form-control" placeholder id="lol" readonly>
+</div>
+<div class="input-group">
+<span class="input-group-addon">微博UID</span>
+<input type="text" class="form-control" placeholder id="wbuid" readonly>
+</div>
+<div class="input-group">
+<span class="input-group-addon">QQ老蜜</span>
+<input type="text" class="form-control" placeholder id="laomi" readonly>
+</div>
+
+<div class="input-group">
+<span class="input-group-addon ">密保QQ下面查</span>
+<input type="text" class="form-control" placeholder id="qqid" readonly>
+</div>
+
+<div style="text-align:center">
+            <a href="/wk"><span style="color:red">您的支持是我们网站运营下去的动力，如果本平台对您有用，就请点击这里吧！</span></a>
+        </div>
+</div>
+</div>
+<div style="display: none">
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+function qbang($mod) {
+var qq = $('#input').val();
+if (qq == '') {
+var alert_1 = layer.msg('请输入QQ', { icon: 5 });
+} else {
+if($mod=='cha'){
+dialog('<div style="text-align:center"><br><b style="color:#ff4425">仅供查自己的信息<br>不是自己的请立即退出本页面<br>否则，发生的一切后果本人不负责!!!<br><br>确认查询？？</b><br><br><a onclick='+'queren("cha")'+' class="btn btn-block btn-primary" style="background: linear-gradient(to right,#b221ff,#14b7ff);">确认</a><br></div>', 1);
+}
+}
+}
+function queren(mod) {
+console.log(mod);
+layer.close(layer.index);
+var qq = $('#input').val();
+if(mod=='cha'){
+$url = 'https://zy.xywlapi.cc/qqapi?qq='+qq;
+}
+
+var alert_1 = layer.load(0, { shade: false });
+$.getJSON($url, function (json) {
+layer.close(alert_1);
+if (json['status'] == '200') {
+layer.msg('查询成功', { icon: 1 });
+$('#mobile').val(json['phone']);
+$('#mobileduqu').val(json['phonediqu']);
+$('#lol').val(json['lol']);
+$('#wbuid').val(json['wb']);
+$('#laomi').val(json['qqlm']);
+$('#jiexi_data').css("display", "block");
+} else {
+layer.msg(json['message']);
+$('#jiexi_data').css("display", "none");
+}
+}
+);
+}
+function dialog(code, exit) {
+layer.open({
+type: 1,
+skin: 'layui-layer-lan', //加上边框
+area: ['350px', ''], //宽高
+closeBtn: exit,
+shade: 0.8,
+title: '提示',
+btnAlign: 'c',
+content: code,
+});
+}
+gg()
+</script>
+
+
+
+<div class="container">
+<div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 center-block" style="float: none;">
+<br>
+<div class="panel panel-primary">
+<div class="panel-heading" style="background: linear-gradient(to right,#b221ff,#14b7ff,#8ae68a);">
+<h3 class="panel-title">手机号反查</h3>
+</div>
+<div class="panel-body" style="text-align: center;">
+<div class="list-group">
+<div class="list-group-item list-group-item-warning" style="font-weight: bold;">
+<span>输入号码茶QQ</span>
+</div>
+<div class="list-group-item list-group-item-info" style="font-weight: bold;">
+<input class="form-control" id="sjhmxx" placeholder="请输入号码">
+</div>
+			<marquee scrollamount="5" direction="left" align="Middle" style="font-weight: bold;line-height: 18px;font-size: 15px;color: #8968CD;">在此处查询 信息上方返回</marquee>
+<div class="list-group-item">
+<a onclick="sjfc('chasj')" class="btn btn-block btn-primary" style="background: linear-gradient(to right,#b221ff,#14b7ff);">查找</a>
+</div>
+</div>
+</div>
+<div style="display: none">
+</div>
+</div>
+<div class="panel panel-default text-center">
+<div class="panel-body">初恋云网络 © 在线查Q绑工具
+<br>
+<div id="result"></div>
+</div></div></div></div>
+<script>0
+function sjfc($mod) {
+var sjh = $('#sjhmxx').val();
+if (sjh == '') {
+var alert_1 = layer.msg('请输入号码', { icon: 5 });
+} else {
+if($mod=='chasj'){
+dialog('<div style="text-align:center"><br><b style="color:#ff4425">仅供查自己的信息<br>不是自己的请立即退出本页面<br>否则，发生的一切后果本人不负责!!!<br><br>确认查询？？</b><br><br><a onclick='+'que("chasj")'+' class="btn btn-block btn-primary" style="background: linear-gradient(to right,#b221ff,#14b7ff);">确认</a><br></div>', 1);
+}
+}
+}
+function que(mod) {
+console.log(mod);
+layer.close(layer.index);
+var sjh = $('#sjhmxx').val();
+if(mod=='chasj'){
+$url = 'https://zy.xywlapi.cc/qqphone?phone='+sjh;
+}
+
+var alert_1 = layer.load(0, { shade: false });
+$.getJSON($url, function (json) {
+layer.close(alert_1);
+if (json['status'] == '200') {
+layer.msg('查询成功', { icon: 1 });
+$('#qqid').val(json['qq']);
+$('#mobileduqu').val(json['phonediqu']);
+$('#jiexi_data').css("display", "block");
+} else {
+layer.msg(json['message']);
+$('#jiexi_data').css("display", "none");
+}
+}
+);
+}
+function dialog(code, exit) {
+layer.open({
+type: 1,
+skin: 'layui-layer-lan', //加上边框
+area: ['350px', ''], //宽高
+closeBtn: exit,
+shade: 0.8,
+title: '提示',
+btnAlign: 'c',
+content: code,
+});
+}
+gg()
+</script>
+<script src="//lib.baomitu.com/jquery/3.5.1/jquery.min.js"></script><script src="https://music.clwl.online/Player/player.min.js" id="SinKingMusic" key="1"></script>
+</body>
+
+</html>
